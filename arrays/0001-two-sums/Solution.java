@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
-  // Brute force
+  // Brute Force
   // Time Complexity: O(n^2)
   // Space Complexity: O(1)
   public int[] twoSum1(int[] nums, int target) {
