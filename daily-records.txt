@@ -1,5 +1,5 @@
 List of daily leetcode progress
 
 Date   : 03/01/2023
-Index  : 1, 3
-Number : 2
+Index  : 1, 3, 5
+Number : 3
