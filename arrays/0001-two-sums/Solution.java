@@ -1,5 +1,6 @@
 class Solution {
   // Brute force
+  // Time Complexity: O(n^2)
   public int[] twoSum1(int[] nums, int target) {
     int length = nums.length;
     for (int i = 0; i < length - 1; i++) {
@@ -13,6 +14,7 @@ class Solution {
   }
 
   // Consider the target's constraints -10^9 <= target <= 10^9
+  // Time Complexity: O(n^2)
   public int[] twoSum2(int[] nums, int target) {
     int length = nums.length;
     for (int i = 0; i < length - 1; i++) {
