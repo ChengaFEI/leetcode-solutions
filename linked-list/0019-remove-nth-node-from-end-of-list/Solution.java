@@ -2,7 +2,7 @@ public class Solution {
   // Recursion + Counter
   // Time Complexity: O(n) one-pass
   // Space Complexity: O(1)
-  public ListNode removeNthFromEnd(ListNode head, int n) {
+  public ListNode removeNthFromEnd1(ListNode head, int n) {
     ListNode dummy = new ListNode(0, head);
     countAndRemove(dummy, n);
     return dummy.next;
@@ -21,6 +21,27 @@ public class Solution {
     }
     return nextCount + 1;
   }
+
+  // Fast-Slow Pointers
+  // Time Complexity: O(n) one-pass
+  // Space Complexity: O(1)
+  public ListNode removeNthFromEnd2(ListNode head, int n) {
+    ListNode dummy = new ListNode(0, head);
+    ListNode fast = dummy;
+    ListNode slow = dummy;
+    for (int i = 0; i <= n; i++)
+      fast = fast.next;
+    while (fast != null) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+    ListNode next = slow.next;
+    slow.next = slow.next.next;
+    next.next = null;
+    return dummy.next;
+  }
+  // Lesson: Use fast-slow pointers pair to transform a reversed searching problem
+  // to a forward searching problem.
 }
 
 class ListNode {
