@@ -15,4 +15,22 @@ public class Solution {
   }
   // Lesson:
   // Use one-pass iteration in inner nested traversal.
+
+  // Dynamic Programming
+  // Time Complexity: O(n)
+  // Space Complexity: O(1)
+  public int maxSubArray2(int[] nums) {
+    int maxVal = nums[0], curVal = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+      int num = nums[i];
+      curVal = Math.max(num, num + curVal);
+      maxVal = Math.max(curVal, maxVal);
+    }
+    return maxVal;
+  }
+  // Lesson:
+  // Move-Measure-Memorize Methods (M4) - As pointers move along the list,
+  // memorize the result of each iteration and measure the information. Each
+  // iteration afterwards will be based on the measurement of a previous
+  // iteration.
 }
