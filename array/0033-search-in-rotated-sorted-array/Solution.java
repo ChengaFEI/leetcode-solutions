@@ -46,4 +46,45 @@ public class Solution {
     }
     return -1;
   }
+
+  // One-Pass Binary Search
+  // Time Complexity: O(logN)
+  // Space Complexity: O(1)
+  public int search(int[] nums, int target) {
+    if (nums == null || nums.length == 0)
+      return -1;
+    int left = 0, right = nums.length - 1;
+    while (left <= right) {
+      int middle = (left + right) / 2;
+      int m = nums[middle], l = nums[left], r = nums[right];
+      if (m == target)
+        return middle;
+      if (l == target)
+        return left;
+      if (r == target)
+        return right;
+      if (m > l) {
+        if (target > l && target < m) {
+          right = middle - 1;
+          left++;
+        } else {
+          left = middle + 1;
+          right--;
+        }
+      } else {
+        if (target > m && target < r) {
+          left = middle + 1;
+          right--;
+        } else {
+          right = middle - 1;
+          left++;
+        }
+      }
+    }
+    return -1;
+  }
+  // Lesson:
+  // In revised binary search, we can know whether the middle index locates in the
+  // left half / right half of the rotated array simply by comparing the middle
+  // value with the left bound value.
 }
