@@ -11,9 +11,11 @@ public class Solution {
     return mergeNewInterval(insertedIntervals);
   }
   // Lesson:
-  // Construct a new ArrayList from an existing array doesn't require extra RAM
+  // 1. Construct a new ArrayList from an existing array doesn't require extra RAM
   // space because it simply wraps/references the array and equips it with more
   // functions.
+  // 2. ArrayList is a space-efficient way to manipulate an array, especially when
+  // we need to mutate the capacity of an array.
 
   private static int[][] insertNewInterval(int[][] intervals, int[] newInterval) {
     // Data Structure (no extra space)
