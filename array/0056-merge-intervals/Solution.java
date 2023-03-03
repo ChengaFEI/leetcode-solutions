@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -81,4 +83,28 @@ public class Solution {
     }
     return new int[] { minVal, maxVal };
   }
+
+  // Sorting + One-Pass In-Place Replacement
+  // Time Complexity: (nlogn)
+  // Space Complexity: O(logn) - O(n)
+  public int[][] merge(int[][] intervals) {
+    if (intervals == null || intervals.length == 0)
+      return null;
+    LinkedList<int[]> result = new LinkedList<>();
+    Arrays.sort(intervals, (i1, i2) -> {
+      return i1[0] - i2[0];
+    });
+    result.add(intervals[0]);
+    for (int i = 1; i < intervals.length; i++) {
+      int[] interval = intervals[i];
+      if (interval[0] > result.getLast()[1])
+        result.add(interval);
+      else
+        result.getLast()[1] = Math.max(interval[1], result.getLast()[1]);
+    }
+    return result.toArray(new int[result.size()][]);
+  }
+  // Lesson:
+  // For array-based problems, if (optimized) brute force cost O(n^2) or more
+  // time, we can first sort the array and prevent nested traversal in solutions.
 }
