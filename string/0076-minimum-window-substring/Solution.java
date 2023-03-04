@@ -25,11 +25,13 @@ public class Solution {
     charNeeded = charCountNeeded.size();
     // Traverse
     while (right < s.length()) {
+      // Expand right pointer
       char addChar = s.charAt(right);
       if (charCountNeeded.containsKey(addChar)) {
         charCountNeeded.put(addChar, charCountNeeded.get(addChar) - 1);
         if (charCountNeeded.get(addChar) == 0)
           charNeeded--;
+        // Contract left pointer
         while (charNeeded < 1) {
           if (right - left + 1 < minLen[0])
             minLen = new int[] { right - left + 1, left, right };
