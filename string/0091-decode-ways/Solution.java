@@ -40,7 +40,7 @@ public class Solution {
     return mem.get(index);
   }
 
-  // Iterative Dynamic Programming
+  // Iterative Dynamic Programming + Memorization
   // Time Complexity: O(n)
   // Space Complexity: O(n)
   public int numDecodings2(String s) {
