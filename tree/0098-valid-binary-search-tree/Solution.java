@@ -1,10 +1,13 @@
 public class Solution {
   // Recursion
   // Time Complexity: O(n)
-  // Space Complexity: O(1)
+  // Space Complexity: O(n)
   public boolean isValidBST1(TreeNode root) {
     return isValidBSTRec(root, null, null);
   }
+  // Lesson:
+  // Traverse a non-balanced tree using recursion algorithm might take up to
+  // linear space because of the function call stack frame.
 
   private static boolean isValidBSTRec(TreeNode node, Integer min, Integer max) {
     // Variable Init
