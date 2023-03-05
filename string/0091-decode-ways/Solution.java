@@ -69,4 +69,44 @@ public class Solution {
     }
     return nums[0];
   }
+
+  // Iterative Dynamic Programming + Constant Memory
+  // Time Complexity: O(n)
+  // Space Complexity: O(1)
+  public int numDecodings(String s) {
+    // Data Structure
+    int[] mem = new int[2];
+    // Variable Init
+    int length = s.length();
+    mem[1] = 1;
+    mem[0] = s.charAt(length - 1) == '0' ? 0 : 1;
+    // Traverse (iterate)
+    for (int i = length - 2; i >= 0; i--) {
+      char c = s.charAt(i);
+      int n = c - '0';
+      if (n > 2)
+        mem[1] = mem[0];
+      else if (n == 2) {
+        char nextC = s.charAt(i + 1);
+        if (nextC - '0' < 7) {
+          int tmp = mem[0];
+          mem[0] += mem[1];
+          mem[1] = tmp;
+        } else
+          mem[1] = mem[0];
+      } else if (n == 1) {
+        int tmp = mem[0];
+        mem[0] += mem[1];
+        mem[1] = tmp;
+      } else {
+        mem[1] = mem[0];
+        mem[0] = 0;
+      }
+      ;
+    }
+    return mem[0];
+  }
+  // Lesson:
+  // As long as each iteration only considers a contant number of variables, we
+  // can solve the problem with contant space.
 }
