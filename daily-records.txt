@@ -1,5 +1,5 @@
 List of daily leetcode progress
-Total  | 23 + 4
+Total  | 23 + 5
 
 Date   | 03/01/2023
 Index  | 1, 3, 5, 11, 167, 15, 19
@@ -14,5 +14,5 @@ Index  | 55, 56, 57, 62, 70, 73
 Number | 6
 
 Date   | 03/04/2023
-Index  | 76, 79(TLE), 91, 98
-Number | 4
+Index  | 76, 79(TLE), 91, 98, 100
+Number | 5
