@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution {
-  // Recursive Dynamic Programming
+  // Recursive Dynamic Programming + Memorization
   // Time Complexity: O(n)
   // Space Complexity: O(n)
   public int numDecodings1(String s) {
